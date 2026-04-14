@@ -1,0 +1,180 @@
+<mujoco model="panda">
+  <default>
+    <joint limited="true" damping="100.0" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+
+  <compiler angle="radian" meshdir="../meshes/panda_description" eulerseq="zyx" autolimits="true" />
+
+  <asset>
+    <texture name="texplane" type="2d" builtin="flat" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100"
+      height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <mesh name="link0.stl" file="collision/link0.stl" />
+    <mesh name="link0_visual.stl" file="visual/link0_visual.stl" />
+    <mesh name="link1.stl" file="collision/link1.stl" />
+    <mesh name="link1_visual.stl" file="visual/link1_visual.stl" />
+    <mesh name="link2.stl" file="collision/link2.stl" />
+    <mesh name="link2_visual.stl" file="visual/link2_visual.stl" />
+    <mesh name="link3.stl" file="collision/link3.stl" />
+    <mesh name="link3_visual.stl" file="visual/link3_visual.stl" />
+    <mesh name="link4.stl" file="collision/link4.stl" />
+    <mesh name="link4_visual.stl" file="visual/link4_visual.stl" />
+    <mesh name="link5.stl" file="collision/link5.stl" />
+    <mesh name="link5_visual.stl" file="visual/link5_visual.stl" />
+    <mesh name="link6.stl" file="collision/link6.stl" />
+    <mesh name="link6_visual.stl" file="visual/link6_visual.stl" />
+    <mesh name="link7.stl" file="collision/link7.stl" />
+    <mesh name="link7_visual.stl" file="visual/link7_visual.stl" />
+    <mesh name="hand.stl" file="collision/hand.stl" />
+    <mesh name="hand_visual.stl" file="visual/hand_visual.stl" />
+    <mesh name="finger.stl" file="collision/finger.stl" />
+    <mesh name="finger_visual.stl" file="visual/finger_visual.stl" />
+    <mesh name="camera_visual.dae" file="../camera/collision/camera.stl" />
+    <mesh name="camera_collision.stl" file="../camera/collision/camera.stl" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0"
+      dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+    <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" quat="1 0 0 0"
+      material="matplane" condim="3" conaffinity="15" />
+    <body name="panda_link0" pos="0 -0.5 1.015" quat="0.7071 0 0 0.7071">
+      <body name="camera_link" pos="0.2 0.4 1.0" euler="0 1.5707963 0">
+        <inertial mass="0.1" pos="0 0 0" diaginertia="0.00001 0.00001 0.00001" />
+        <geom name="camera_visual" type="mesh" mesh="camera_visual.dae" material="default_material"
+          contype="0" conaffinity="0" />
+        <geom name="camera_collision" type="mesh" mesh="camera_collision.stl" rgba="0 0 0 0" />
+
+        <camera name="camera" fovy="58" mode="fixed" resolution="640 480" pos="0.0 0 0.0"
+          euler="1.5707963 3.14159265 -1.5707963" />
+      </body>
+      <geom name="panda_link0_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh" mesh="link0.stl"
+        rgba="0 0 0 0" />
+      <geom name="panda_link0_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
+        type="mesh" mesh="link0_visual.stl" />
+      <body name="panda_link1" pos="0 0 0.333" quat="1.0 0.0 0.0 0.0">
+        <joint name="panda_joint1" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+        <geom name="panda_link1_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh" mesh="link1.stl"
+          rgba="0 0 0 0" />
+        <geom name="panda_link1_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
+          type="mesh" mesh="link1_visual.stl" />
+        <body name="panda_link2" pos="0 0 0" quat="0.7071067811882787 -0.7071067811848163 0.0 0.0">
+          <joint name="panda_joint2" type="hinge" range="-1.8326 1.8326" axis="0 0 1" />
+          <geom name="panda_link2_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+            mesh="link2.stl" rgba="0 0 0 0" />
+          <geom name="panda_link2_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
+            type="mesh" mesh="link2_visual.stl" />
+          <body name="panda_link3" pos="0 -0.316 0"
+            quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
+            <joint name="panda_joint3" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+            <geom name="panda_link3_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+              mesh="link3.stl" rgba="0 0 0 0" />
+            <geom name="panda_link3_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
+              type="mesh" mesh="link3_visual.stl" />
+            <body name="panda_link4" pos="0.0825 0 0"
+              quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
+              <joint name="panda_joint4" type="hinge" range="-3.1416 0.0873" axis="0 0 1" />
+              <geom name="panda_link4_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+                mesh="link4.stl" rgba="0 0 0 0" />
+              <geom name="panda_link4_visual_0" pos="0 0 0" quat="1 0 0 0"
+                material="default_material" type="mesh" mesh="link4_visual.stl" />
+              <body name="panda_link5" pos="-0.0825 0.384 0"
+                quat="0.7071067811882787 -0.7071067811848163 0.0 0.0">
+                <joint name="panda_joint5" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+                <geom name="panda_link5_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+                  mesh="link5.stl" rgba="0 0 0 0" />
+                <geom name="panda_link5_visual_0" pos="0 0 0" quat="1 0 0 0"
+                  material="default_material" type="mesh" mesh="link5_visual.stl" />
+                <body name="panda_link6" pos="0 0 0"
+                  quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
+                  <joint name="panda_joint6" type="hinge" range="-0.0873 3.8223" axis="0 0 1" />
+                  <geom name="panda_link6_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+                    mesh="link6.stl" rgba="0 0 0 0" />
+                  <geom name="panda_link6_visual_0" pos="0 0 0" quat="1 0 0 0"
+                    material="default_material" type="mesh" mesh="link6_visual.stl" />
+                  <body name="panda_link7" pos="0.088 0 0"
+                    quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
+                    <joint name="panda_joint7" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+                    <geom name="panda_link7_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+                      mesh="link7.stl" rgba="0 0 0 0" />
+                    <geom name="panda_link7_visual_0" pos="0 0 0" quat="1 0 0 0"
+                      material="default_material" type="mesh" mesh="link7_visual.stl" />
+                    <body name="panda_link8" pos="0 0 0.107" quat="1.0 0.0 0.0 0.0">
+                      <body name="panda_hand" pos="0 0 0"
+                        quat="0.9238795325113726 0.0 0.0 -0.38268343236488267">
+                        <geom name="panda_hand_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
+                          mesh="hand.stl" rgba="0 0 0 0" />
+                        <geom name="panda_hand_visual_0" pos="0 0 0" quat="1 0 0 0"
+                          material="default_material" type="mesh" mesh="hand_visual.stl" />
+                        <body name="panda_leftfinger" pos="0 0 0.0584" quat="1.0 0.0 0.0 0.0">
+                          <joint name="panda_finger_joint1" type="slide" range="0.0 0.04"
+                            axis="0 1 0" />
+                          <geom name="panda_leftfinger_collision_0" pos="0 0 0" quat="1 0 0 0"
+                            type="mesh" mesh="finger.stl" rgba="0 0 0 0" />
+                          <geom name="panda_leftfinger_visual_0" pos="0 0 0" quat="1 0 0 0"
+                            material="default_material" type="mesh" mesh="finger_visual.stl" />
+                        </body>
+                        <body name="panda_rightfinger" pos="0 0 0.0584" quat="1.0 0.0 0.0 0.0">
+                          <joint name="panda_finger_joint2" type="slide" range="0.0 0.04"
+                            axis="0 -1 0" />
+                          <geom name="panda_rightfinger_collision_0" pos="0 0 0"
+                            quat="-1.0341155355510722e-13 -0.0 0.0 1.0" type="mesh"
+                            mesh="finger.stl" rgba="0 0 0 0" />
+                          <geom name="panda_rightfinger_visual_0" pos="0 0 0"
+                            quat="-1.0341155355510722e-13 -0.0 0.0 1.0" material="default_material"
+                            type="mesh" mesh="finger_visual.stl" />
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="panda_joint1_ctrl" joint="panda_joint1" kp="10000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-2.9671 2.9671"
+      ctrllimited="true" />
+    <position name="panda_joint2_ctrl" joint="panda_joint2" kp="10000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-1.8326 1.8326"
+      ctrllimited="true" />
+    <position name="panda_joint3_ctrl" joint="panda_joint3" kp="10000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-2.9671 2.9671"
+      ctrllimited="true" />
+    <position name="panda_joint4_ctrl" joint="panda_joint4" kp="50000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-3.1416 0.0873"
+      ctrllimited="true" />
+    <position name="panda_joint5_ctrl" joint="panda_joint5" kp="50000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-2.9671 2.9671"
+      ctrllimited="true" />
+    <position name="panda_joint6_ctrl" joint="panda_joint6" kp="50000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-0.0873 3.8223"
+      ctrllimited="true" />
+    <position name="panda_joint7_ctrl" joint="panda_joint7" kp="5000.0" dampratio="1.0"
+      forcerange="-187.00000000 187.00000000" forcelimited="true" ctrlrange="-2.9671 2.9671"
+      ctrllimited="true" />
+    <position name="panda_finger_joint1_ctrl" joint="panda_finger_joint1" kp="5000.0"
+      dampratio="1.0" forcerange="-120.00000000 120.00000000" forcelimited="true" ctrlrange="0.0 0.04"
+      ctrllimited="true" />
+  </actuator>
+
+
+  <equality>
+    <joint joint1="panda_finger_joint1" joint2="panda_finger_joint2" polycoef="0.0 1 0 0 0"
+      solimp="0.95 0.99 0.001" solref="0.005 1" />
+  </equality>
+
+</mujoco>

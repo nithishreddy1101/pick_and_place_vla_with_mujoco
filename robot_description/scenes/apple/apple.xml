@@ -1,0 +1,8 @@
+<asset>
+  <mesh name="apple_mesh" file="meshes/apple.obj" scale="0.01 0.01 0.01"/>
+
+  <texture name="apple_tex" type="2d"
+           file="textures/Apples_Pack_tl2kealva_Raw_8K_BaseColor.jpg"/>
+
+  <material name="apple_mat" texture="apple_tex"/>
+</asset>

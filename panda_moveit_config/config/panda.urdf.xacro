@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import panda urdf file -->
+    <xacro:include filename="$(find robot_description)/urdf/panda.urdf" />
+
+    <xacro:include filename="$(find robot_description)/urdf/camera.urdf"/>
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="panda.ros2_control.xacro" />
+
+    <xacro:camera_v0 parent="panda_link0">
+	    <origin xyz="0.2 0.4 1.0" rpy="0 ${PI/2} 0"/>
+    </xacro:camera_v0>
+
+
+    <xacro:panda_ros2_control name="MuJoCoSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
