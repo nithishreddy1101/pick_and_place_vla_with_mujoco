@@ -12,7 +12,7 @@
   <compiler angle="radian" meshdir="../meshes/panda_description" eulerseq="zyx" autolimits="true" />
 
   <asset>
-    <texture name="texplane" type="2d" builtin="flat" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100"
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100"
       height="100" />
     <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
     <material name="default_material" rgba="0.7 0.7 0.7 1" />
@@ -47,6 +47,7 @@
     <geom name="ground" type="plane" pos="0 0 0" size="10 10 0.001" quat="1 0 0 0"
       material="matplane" condim="3" conaffinity="15" />
     <body name="panda_link0" pos="0 -0.5 1.015" quat="0.7071 0 0 0.7071">
+      <inertial pos="-0.041018 -0.00014 0.049974" quat="1.0 0.0 0.0 0.0" mass="0.629769" diaginertia="0.00315 0.00388 0.004285" />
       <body name="camera_link" pos="0.2 0.4 1.0" euler="0 1.5707963 0">
         <inertial mass="0.1" pos="0 0 0" diaginertia="0.00001 0.00001 0.00001" />
         <geom name="camera_visual" type="mesh" mesh="camera_visual.dae" material="default_material"
@@ -61,6 +62,7 @@
       <geom name="panda_link0_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
         type="mesh" mesh="link0_visual.stl" />
       <body name="panda_link1" pos="0 0 0.333" quat="1.0 0.0 0.0 0.0">
+        <inertial pos="0.003875 0.002081 -0.04762" quat="1.0 0.0 0.0 0.0" mass="4.970684" diaginertia="0.70337 0.70661 0.009117" />
         <joint name="panda_joint1" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
         <geom name="panda_link1_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh" mesh="link1.stl"
           rgba="0 0 0 0" />
@@ -68,6 +70,7 @@
           type="mesh" mesh="link1_visual.stl" />
         <body name="panda_link2" pos="0 0 0" quat="0.7071067811882787 -0.7071067811848163 0.0 0.0">
           <joint name="panda_joint2" type="hinge" range="-1.8326 1.8326" axis="0 0 1" />
+          <inertial pos="-0.003141 -0.02872  0.003495" quat="1.0 0.0 0.0 0.0" mass="0.646926" diaginertia="0.007962 0.02811 0.025995" />
           <geom name="panda_link2_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
             mesh="link2.stl" rgba="0 0 0 0" />
           <geom name="panda_link2_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
@@ -75,6 +78,7 @@
           <body name="panda_link3" pos="0 -0.316 0"
             quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
             <joint name="panda_joint3" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+            <inertial pos="2.7518E-2 3.9252E-2 -6.6502E-2" quat="1.0 0.0 0.0 0.0" mass="3.228604" diaginertia="0.037242 0.036155 0.01083" />
             <geom name="panda_link3_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
               mesh="link3.stl" rgba="0 0 0 0" />
             <geom name="panda_link3_visual_0" pos="0 0 0" quat="1 0 0 0" material="default_material"
@@ -82,6 +86,7 @@
             <body name="panda_link4" pos="0.0825 0 0"
               quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
               <joint name="panda_joint4" type="hinge" range="-3.1416 0.0873" axis="0 0 1" />
+              <inertial pos="-5.317E-2 1.04419E-1 2.7454E-2" quat="1.0 0.0 0.0 0.0" mass="3.587895" diaginertia="0.025853 0.019552 0.028323" />
               <geom name="panda_link4_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
                 mesh="link4.stl" rgba="0 0 0 0" />
               <geom name="panda_link4_visual_0" pos="0 0 0" quat="1 0 0 0"
@@ -89,6 +94,7 @@
               <body name="panda_link5" pos="-0.0825 0.384 0"
                 quat="0.7071067811882787 -0.7071067811848163 0.0 0.0">
                 <joint name="panda_joint5" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+                 <inertial pos="-1.1953E-2 4.1065E-2 -3.8437E-2" quat="1.0 0.0 0.0 0.0" mass="1.225946" diaginertia="0.035549 0.029474 0.008627" />
                 <geom name="panda_link5_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
                   mesh="link5.stl" rgba="0 0 0 0" />
                 <geom name="panda_link5_visual_0" pos="0 0 0" quat="1 0 0 0"
@@ -96,6 +102,7 @@
                 <body name="panda_link6" pos="0 0 0"
                   quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
                   <joint name="panda_joint6" type="hinge" range="-0.0873 3.8223" axis="0 0 1" />
+                  <inertial pos="6.0149E-2 -1.4117E-2 -1.0517E-2" quat="1.0 0.0 0.0 0.0" mass="1.666555" diaginertia="0.001964 0.004354 0.005433" />
                   <geom name="panda_link6_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
                     mesh="link6.stl" rgba="0 0 0 0" />
                   <geom name="panda_link6_visual_0" pos="0 0 0" quat="1 0 0 0"
@@ -103,13 +110,14 @@
                   <body name="panda_link7" pos="0.088 0 0"
                     quat="0.7071067811882787 0.7071067811848163 0.0 0.0">
                     <joint name="panda_joint7" type="hinge" range="-2.9671 2.9671" axis="0 0 1" />
+                    <inertial pos="1.0517E-2 -4.252E-3 6.1597E-2" quat="1.0 0.0 0.0 0.0" mass="7.35522E-1" diaginertia="0.012516 0.010027 0.004815" />
                     <geom name="panda_link7_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
                       mesh="link7.stl" rgba="0 0 0 0" />
                     <geom name="panda_link7_visual_0" pos="0 0 0" quat="1 0 0 0"
                       material="default_material" type="mesh" mesh="link7_visual.stl" />
                     <body name="panda_link8" pos="0 0 0.107" quat="1.0 0.0 0.0 0.0">
-                      <body name="panda_hand" pos="0 0 0"
-                        quat="0.9238795325113726 0.0 0.0 -0.38268343236488267">
+                      <body name="panda_hand" pos="0 0 0" quat="0.9238795325113726 0.0 0.0 -0.38268343236488267">
+                        <inertial pos="-0.01 0 0.03" quat="1.0 0.0 0.0 0.0" mass="0.73" diaginertia="0.001 0.0025 0.0017" />
                         <geom name="panda_hand_collision_0" pos="0 0 0" quat="1 0 0 0" type="mesh"
                           mesh="hand.stl" rgba="0 0 0 0" />
                         <geom name="panda_hand_visual_0" pos="0 0 0" quat="1 0 0 0"
@@ -117,6 +125,7 @@
                         <body name="panda_leftfinger" pos="0 0 0.0584" quat="1.0 0.0 0.0 0.0">
                           <joint name="panda_finger_joint1" type="slide" range="0.0 0.04"
                             axis="0 1 0" />
+                            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.015" diaginertia="2.375e-06 2.375e-06 7.5e-07" />
                           <geom name="panda_leftfinger_collision_0" pos="0 0 0" quat="1 0 0 0"
                             type="mesh" mesh="finger.stl" rgba="0 0 0 0" />
                           <geom name="panda_leftfinger_visual_0" pos="0 0 0" quat="1 0 0 0"
@@ -125,6 +134,7 @@
                         <body name="panda_rightfinger" pos="0 0 0.0584" quat="1.0 0.0 0.0 0.0">
                           <joint name="panda_finger_joint2" type="slide" range="0.0 0.04"
                             axis="0 -1 0" />
+                          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.15" diaginertia="2.375e-06 2.375e-06 7.5e-07" />
                           <geom name="panda_rightfinger_collision_0" pos="0 0 0"
                             quat="-1.0341155355510722e-13 -0.0 0.0 1.0" type="mesh"
                             mesh="finger.stl" rgba="0 0 0 0" />
